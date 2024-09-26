@@ -1,0 +1,38 @@
+<div class="col-11 mx-auto">
+    <h2 id="certifications" class="mb-3">Certifications</h2>
+    <div class="col-3">
+        <div class="d-grid gap-2">
+            <a class="btn btn-dark mb-1" href="{{ url_for('createCertification') }}">Create Certification</a>
+        </div>
+    </div>
+    <div class="col-12 mx-auto">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Institution</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Date</th>
+                    <th scope="col" colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for certify in getCertifications %}
+                <tr>
+                    <td>{{certify.0}}</td>
+                    <td>{{certify.1}}</td>
+                    <td>{{certify.2}}</td>
+                    <td>{{certify.3}}</td>
+                    <td>{{certify.4}}</td>
+                    <td>{{ moment(certify.5).format('MMMM YYYY') }}</td>
+                    <td><a class="btn btn-secondary mb-1" href="">Modify Certification</a></td>
+                    <td><a class="btn btn-danger mb-1" href="">Delete Certification</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>

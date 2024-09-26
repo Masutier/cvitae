@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+<div class="col-11 mx-auto mt-4 mb-4">
+    <div class="btn-group">
+        <a href="#education" class="btn btn-outline-secondary">Education</a>
+        <a href="#courses" class="btn btn-outline-secondary">Courses</a>
+    </div>
+</div>
+
+<h1 class="mt-4 mb-5" id="education">EDUCATION</h1>
+
+<div class="col-11 mx-auto">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for education in getEducation %}
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ education.0 }}</h5>
+                    </div>
+                    <div class="card-footer">
+                        {% if education.4 == "In Progres" %}
+                        <small class="text-body-secondary">{{ moment(education.3).format('MMMM YYYY') }} ~ In Progres / {{ education.5 }} / {{ education.6 }}, {{ education.7 }}</small>
+                        {% else %}
+                        <small class="text-body-secondary">{{ moment(education.3).format('MMMM YYYY') }}, {{ moment(education.4).format('MMMM YYYY') }}, {{ education.5 }} / {{ education.6 }} / {{ education.7 }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ education.2 }}</p>
+                    </div>
+
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+<h1 class="mt-4 mb-5" id="courses">Other Courses</h1>
+
+<div class="col-11 mx-auto">
+    <div class="row row-cols-2 row-cols-md-3 g-6">
+        {% for course in getCourse %}
+
+            <div class="col mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course.0 }}</h5>
+                    </div>
+                    <div class="card-footer">
+                        {% if course.2 == None %}
+                        <small class="text-body-secondary">{{ moment(course.3).format('MMMM YYYY') }}</small>
+                        {% else %}
+                        <small class="text-body-secondary">{{ course.2 }} / {{ moment(course.3).format('MMMM YYYY') }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ course.1 }}</p>
+                    </div>
+
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

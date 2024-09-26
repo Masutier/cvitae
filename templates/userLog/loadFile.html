@@ -1,0 +1,53 @@
+{% extends 'layout2.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+
+<div class="col-lg-9 col-sm-10 mx-auto p-5 mb-3 c">
+    <h3 class="c">Arrancar la Aplicacion</h3>
+    <img src="">
+    <hr>
+    <div class="col-11 mx-auto mb-4 c">
+        <h5>Plantilla para cargar la información del Curriculum Vitae</h5>
+        <a class="btn btn-success mb-3" href="" download>Descarga Plantilla Curriculum Vitae.xlsx</a>
+        <p class="txtcol">ATENCION!! Si se cambia el formato que tienen las plantillas, posiblemente la aplicacion rechace los datos.</p>
+    </div>
+    <hr>
+    <div class="col-12 mx-auto px-5 pt-5 pb-3 backs">
+        <h2>Registro</h2>
+        <form action="/loadFile" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-6 mx-auto">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                    <div id="passwordBlock" class="form-text">
+                        Password must be 8-20 characters
+                    </div>
+                </div>
+                <div class="col-6 mx-auto">
+                    <label for="password2" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="password2" name="password2">
+                </div>
+            </div>
+
+            <h2>Subir la plantilla</h2>
+
+            <div class="mb-3">
+                <label for="fileinn" class="form-label">Asegúrese que sea copia de la plantilla en formato .xls o .xlsx</label>
+                <input class="form-control" type="file" name="fileinn" accept=".xlsx,.xls" required>
+            </div>
+            <div class="col-7 mx-auto mb-5">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success mt-3" type="submit" name="submit">Procesar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

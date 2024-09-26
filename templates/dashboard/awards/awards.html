@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+<h1 class="mt-4 mb-5">AWARDS</h1>
+
+<div class="col-11 mx-auto">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for award in getAwards %}
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ award.0 }}</h5>
+                        <p class="card-text">{{ award.1 }}</p>
+                    </div>
+                    <div class="card-footer">
+                        {% if award.2 != None %}
+                        <small class="text-body-secondary">{{ award.2 }}</small>
+                        {% endif %}
+                        {% if award.3 != None %}
+                        <small class="text-body-secondary">{{ award.3 }}</small>
+                        {% endif %}
+                        {% if award.4 != None %}
+                        <small class="text-body-secondary">{{ award.4 }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ moment(award.5).format('MMMM YYYY') }}</p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

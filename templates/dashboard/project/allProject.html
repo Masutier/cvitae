@@ -1,0 +1,58 @@
+<div class="col-11 mx-auto">
+    <h2 id="project" class="mb-3">Projects</h2>
+    <div class="col-3">
+        <div class="d-grid gap-2">
+            <a class="btn btn-dark mb-1" href="{{ url_for('createProject') }}">Create Project</a>
+        </div>
+    </div>
+    <div class="col-12 mx-auto">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">project</th>
+                    <th scope="col">lenguaje</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">remarks</th>
+                    <th scope="col">deploy</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">status</th>
+                    <th scope="col">video</th>
+                    <th scope="col">link</th>
+                    <th scope="col">github</th>
+                    <th scope="col" colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in getProjects %}
+                <tr>
+                    <td>{{project.0}}</td>
+                    <td>{{project.1}}</td>
+                    <td>{{project.4}}</td>
+                    <td>{{project.5}}</td>
+                    <td>{{project.6}}</td>
+                    <td>{{ moment(project.2).format('MMMM YYYY') }}</td>
+                    <td>{{project.3}}</td>
+                    {% if project.7 == None %}
+                    <td></td>
+                    {% else %}
+                    <td>Have Link</td>
+                    {% endif %}
+                    {% if project.8 == None %}
+                    <td></td>
+                    {% else %}
+                    <td>Have Link</td>
+                    {% endif %}
+                    {% if project.9 == None %}
+                    <td></td>
+                    {% else %}
+                    <td>Have Link</td>
+                    {% endif %}
+                    <td><a class="btn btn-secondary mb-1" href="">Modify Project</a></td>
+                    <td><a class="btn btn-danger mb-1" href="">Delete Project</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>

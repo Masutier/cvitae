@@ -1,0 +1,30 @@
+<div class="col-11 mx-auto">
+    <h2 id="skills" class="mb-3">Skills</h2>
+    <div class="col-3">
+        <div class="d-grid gap-2">
+            <a class="btn btn-dark mb-1" href="{{ url_for('createSkill') }}">Create Skill</a>
+        </div>
+    </div>
+    <div class="col-12 mx-auto">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Skill</th>
+                    <th scope="col">Category</th>
+                    <th scope="col" colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for skill in getSkills %}
+                <tr>
+                    <td>{{skill.0}}</td>
+                    <td>{{skill.1}}</td>
+                    <td><a class="btn btn-secondary mb-1" href="">Modify Skill</a></td>
+                    <td><a class="btn btn-danger mb-1" href="">Delete Skill</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>

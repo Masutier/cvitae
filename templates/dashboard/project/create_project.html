@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+    <div class="col-lg-12 mx-auto ">
+
+        <div class="col-md-10 m-5 mx-auto c ">
+            <h1>Create Project</h1>
+        </div>
+
+        <div class="col-md-7 mx-auto p-5 backform">
+
+            <form action="createProject" method="POST">
+                <div class="mb-3">
+                    <label for="project" class="form-label">Project</label>
+                    <input type="text" class="form-control" id="project" name="project">
+                </div>
+
+                <div class="mb-3">
+                    <label for="lenguaje" class="form-label">Lenguaje</label>
+                    <input type="text" class="form-control" id="lenguaje" name="lenguaje">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description">
+                </div>
+
+                <div class="mb-3">
+                    <label for="remarks" class="form-label">Remarks</label>
+                    <input type="text" class="form-control" id="remarks" name="remarks">
+                </div>
+
+                <div class="mb-3">
+                    <label for="deploy" class="form-label">Deploy</label>
+                    <input type="text" class="form-control" id="deploy" name="deploy">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-6 mx-auto">
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <input type="text" class="form-control" id="status" name="status">
+                        </div>
+                    </div>
+                    <div class="col-6 mx-auto">
+                        <div class="mb-3">
+                            <label for="dateout" class="form-label">Date End</label>
+                            <input type="date" class="form-control" id="dateout" name="dateout">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="video" class="form-label">Video</label>
+                    <input type="text" class="form-control" id="video" name="video">
+                </div>
+
+                <div class="mb-3">
+                    <label for="link" class="form-label">Link</label>
+                    <input type="text" class="form-control" id="link" name="link">
+                </div>
+
+                <div class="mb-3">
+                    <label for="github" class="form-label">Github</label>
+                    <input type="text" class="form-control" id="github" name="github">
+                </div>
+
+                <div class="col-lg-7 mt-5 mx-auto ">
+                    <div class="d-grid gap-2">
+                        <input class="btn btn-primary" type="submit" value="SUBMIT">
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock content %}

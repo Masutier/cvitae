@@ -1,0 +1,83 @@
+<div class="col-11 mx-auto">
+    <h2 id="education" class="mb-3">Education</h2>
+    <div class="col-3">
+        <div class="d-grid gap-2">
+            <a class="btn btn-dark mb-1" href="{{ url_for('createEducation') }}">Create Education</a>
+        </div>
+    </div>
+    <div class="col-12 mx-auto">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Institute</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">From Date</th>
+                    <th scope="col">To Date</th>
+                    <th scope="col">city</th>
+                    <th scope="col">state</th>
+                    <th scope="col">contry</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for education in getEducation %}
+                <tr>
+                    <td>{{education.0}}</td>
+                    <td>{{education.1}}</td>
+                    <td>{{education.2}}</td>
+                    <td>{{ moment(education.3).format('MMMM YYYY') }}</td>
+                    {% if education.4 == "In Progres" %}
+                    <td>In Progres</td>
+                    {% else %}
+                    <td>{{ moment(education.4).format('MMMM YYYY') }}</td>
+                    {% endif %}
+                    <td>{{education.5}}</td>
+                    <td>{{education.6}}</td>
+                    <td>{{education.7}}</td>
+                    <td><a class="btn btn-secondary mb-1" href="">Modify Education</a></td>
+                    <td><a class="btn btn-danger mb-1" href="">Delete Education</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="col-11 mx-auto">
+    <h2 id="courses" class="mb-3">Courses</h2>
+    <div class="col-3">
+        <div class="d-grid gap-2">
+            <a class="btn btn-dark mb-1" href="{{ url_for('createCourse') }}">Create Course</a>
+        </div>
+    </div>
+    <div class="col-12 mx-auto">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Institute</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">To Date</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in getCourse %}
+                <tr>
+                    <td>{{course.0}}</td>
+                    <td>{{course.1}}</td>
+                    {% if course.2 == None %}
+                    <td></td>
+                    {% else %}
+                    <td>{{course.2}}</td>
+                    {% endif %}
+                    <td>{{ moment(course.3).format('MMMM YYYY') }}</td>
+                    <td><a class="btn btn-secondary mb-1" href="">Modify Course</a></td>
+                    <td><a class="btn btn-danger mb-1" href="">Delete Course</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

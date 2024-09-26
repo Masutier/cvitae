@@ -1,0 +1,38 @@
+<div class="col-11 mx-auto">
+    <h2 id="awards" class="mb-3">Awards</h2>
+    <div class="col-3">
+        <div class="d-grid gap-2">
+            <a class="btn btn-dark mb-1" href="{{ url_for('createAward') }}">Create Award</a>
+        </div>
+    </div>
+    <div class="col-12 mx-auto">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Institution</th>
+                    <th scope="col">Award</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Date</th>
+                    <th scope="col" colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for award in getAwards %}
+                <tr>
+                    <td>{{award.0}}</td>
+                    <td>{{award.1}}</td>
+                    <td>{{award.2}}</td>
+                    <td>{{award.3}}</td>
+                    <td>{{award.4}}</td>
+                    <td>{{ moment(award.5).format('MMMM YYYY') }}</td>
+                    <td><a class="btn btn-secondary mb-1" href="">Modify Award</a></td>
+                    <td><a class="btn btn-danger mb-1" href="">Delete Award</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+    <h1 class="mt-4 mb-5">EXPERIENCE</h1>
+
+    <div class="col-11 mx-auto">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for experience in experienceAll %}
+
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ experience.0 }}</h5>
+                        </div>
+                        <div class="card-footer">
+                            {% if experience.4 == "In Progres" %}
+                            <small class="text-body-secondary">{{ moment(experience.6).format('MMMM YYYY') }} ~ In Progres / {{ experience.1 }} / {{ experience.4 }}, {{ experience.5 }}</small>
+                            {% else %}
+                            <small class="text-body-secondary">{{ moment(experience.6).format('MMMM YYYY') }} ~ {{ moment(experience.7).format('MMMM YYYY') }} / {{ experience.1 }} / {{ experience.4 }}, {{ experience.5 }}</small>
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ experience.2 }}</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text c">
+                                {% for i in experience.3 %}
+                                    <span class="badge text-bg-light ">{{ i }}</span>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+    
+{% endblock %}

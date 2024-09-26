@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+    <div class="col-lg-12 mx-auto ">
+
+        <div class="col-md-10 m-5 mx-auto c ">
+            <h1>Create Experience</h1>
+        </div>
+
+        <div class="col-md-7 mx-auto p-5 backform">
+
+            <form action="createExperience" method="POST">
+                <div class="mb-3">
+                    <label for="company" class="form-label">Company</label>
+                    <input type="text" class="form-control" id="company" name="company">
+                </div>
+
+                <div class="mb-3">
+                    <label for="job" class="form-label">Job Title</label>
+                    <input type="text" class="form-control" id="job" name="job">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="description" name="description">
+                </div>
+
+                <div class="mb-3">
+                    <label for="skills" class="form-label">Skills</label>
+                    <input type="text" class="form-control" id="skills" name="skills">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-6 mx-auto">
+                        <div class="mb-3">
+                            <label for="datein" class="form-label">Date Start</label>
+                            <input type="date" class="form-control" id="datein" name="datein">
+                        </div>
+                    </div>
+                    <div class="col-6 mx-auto">
+                        <div class="mb-3">
+                            <label for="dateout" class="form-label">Date End</label>
+                            <input type="date" class="form-control" id="dateout" name="dateout">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-6 mx-auto">
+                        <div class="mb-3">
+                            <label for="state" class="form-label">state</label>
+                            <input type="text" class="form-control" id="state" name="state">
+                        </div>
+                    </div>
+                    <div class="col-6 mx-auto">
+                        <div class="mb-3">
+                            <label for="contry" class="form-label">contry</label>
+                            <input type="text" class="form-control" id="contry" name="contry">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 mt-5 mx-auto ">
+                    <div class="d-grid gap-2">
+                        <input class="btn btn-primary" type="submit" value="SUBMIT">
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock content %}

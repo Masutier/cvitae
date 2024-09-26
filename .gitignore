@@ -1,0 +1,4 @@
+venv
+instance/__paycache__
+static/docs
+tools/__paycache__

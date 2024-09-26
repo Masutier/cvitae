@@ -1,0 +1,46 @@
+<div class="col-11 mx-auto">
+    <h2 id="experience" class="mb-3">Experience</h2>
+    <div class="col-3">
+        <div class="d-grid gap-2">
+            <a class="btn btn-dark mb-1" href="{{ url_for('createExperience') }}">Create Experience</a>
+        </div>
+    </div>
+    <div class="col-12 mx-auto">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Company</th>
+                    <th scope="col">Job Name</th>
+                    <th scope="col">Job Description</th>
+                    <th scope="col">Skills</th>
+                    <th scope="col">Start</th>
+                    <th scope="col">End</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Country</th>
+                    <th scope="col" colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expertice in getExperience %}
+                <tr>
+                    <td>{{expertice.0}}</td>
+                    <td>{{expertice.1}}</td>
+                    <td>{{expertice.2}}</td>
+                    <td>{{expertice.3}}</td>
+                    <td>{{ moment(expertice.6).format('MMMM YYYY') }}</td>
+                    {% if expertice.7 == "In Progres" %}
+                    In Progres
+                    {% else %}
+                    <td>{{ moment(expertice.7).format('MMMM YYYY') }}</td>
+                    {% endif %}
+                    <td>{{expertice.4}}</td>
+                    <td>{{expertice.5}}</td>
+                    <td><a class="btn btn-secondary mb-1" href="">Modify Experience</a></td>
+                    <td><a class="btn btn-danger mb-1" href="">Delete Experience</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>

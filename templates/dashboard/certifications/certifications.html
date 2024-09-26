@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+<h1 class="mt-4 mb-5">CERTIFICATIONS</h1>
+
+<div class="col-11 mx-auto">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for certify in getCertifications %}
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ certify.0 }}</h5>
+                        <p class="card-text">{{ certify.1 }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">{{ moment(certify.5).format('MMMM YYYY') }}</small>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ certify.2 }}, {{ certify.3 }}, {{ certify.4 }}</p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
